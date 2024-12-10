@@ -1,0 +1,47 @@
+int sayac = 3, balance = 2000, select, price;
+
+        Scanner inf = new Scanner(System.in);
+        String userName, password;
+        while (sayac > 0) {
+            System.out.print("Kullancı Adınızı Giriniz: ");
+            userName = inf.nextLine();
+            System.out.print("Parolanızı Giriniz: ");
+            password = inf.nextLine();
+
+            if (userName.equals("emre") && password.equals("emre123")) {
+                System.out.println("başarılı Giriş Yaptınız");
+
+                do {
+                    System.out.println("Yapmak İstediğiniz İşlemi Seçiniz\n 1: Para Çekme\n 2: Para Yatırma\n 3: Bakiye Sorgulama\n 4: Çıkış Yap");
+                    select = inf.nextInt();
+
+                    if (select == 1) {
+                        System.out.print("Çekmek İstediğiniz TUtarı Gİriniz: ");
+                        price = inf.nextInt();
+                        balance -= price;
+                        if (balance<price){
+                            System.out.println("Bakiyeniz Yeterli Değil");
+                        }
+                    } else if (select == 2) {
+                        System.out.println("Yatırmak İstedğiniz Tutarı Giriniz");
+                        price = inf.nextInt();
+                        balance += price;
+
+                    } else if (select == 3) {
+                        System.out.println("Bakiyeniz: " + balance);
+
+
+
+                    } else if (select == 4) {
+                        System.out.println("İyi Günler dileriz");
+                    }
+
+                } while (select != 4);
+                break;
+            } else {
+                sayac--;
+
+                System.out.println("Kullanıcı Adı veya Parola Yanlış");
+                System.out.println("Kalan Hakkınız: " + sayac);
+            }
+        }
